@@ -8,5 +8,7 @@ pip install -r requirements.txt
 # run
 
 ```bash
-streamlit run main.py
+streamlit run ToyChat.py
 ```
+
+access http://localhost:8501 with browser.

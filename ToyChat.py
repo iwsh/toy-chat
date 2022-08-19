@@ -7,16 +7,19 @@ import pandas as pd
 data_dir = "data/"
 
 def main():
-    st.title("Hello Chat")
+    st.title("Toy Chat")
 
-    user = st.text_input("Username")
-    msg_body = st.text_area("Message")
-    if st.button('Send'):
-        send_message(user, msg_body)
+    user = st.sidebar.text_input("Username")
+    msg_body = st.sidebar.text_area("Message")
+    if st.sidebar.button('Send'):
+        if user and msg_body:
+            send_message(user, msg_body)
+        else:
+            st.sidebar.error('Username and Message required')
 
     for _, msg in get_messages():
         st.write(f"**{msg.user}**")
-        st.write(f"{msg.body}")
+        st.caption(f"{msg.body}")
 
 
 def send_message(user, msg_body):
